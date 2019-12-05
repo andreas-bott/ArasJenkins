@@ -1,8 +1,8 @@
 
 pipeline{
     agent any
-    cleanWs()
-    checkout scm
+    //cleanWs()
+    //checkout scm
     stages{
         stage('Build') {
             steps {
