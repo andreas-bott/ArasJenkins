@@ -6,6 +6,7 @@ node {
             echo 'Building..'
             bat "C:\\Users\\Administrator\\aras\\Aras Demo\\execute_integration.bat"
         }
+    }
     stage('RunUFTTestFromFS'){
         steps {
             echo 'Running Tests..1'
