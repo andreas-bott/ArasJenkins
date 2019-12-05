@@ -7,7 +7,7 @@ pipeline{
         stage('Build') {
             steps {
                 echo 'Building..'
-                //bat "C:\\Users\\Administrator\\aras\\Aras Demo\\execute_integration.bat"
+                bat "C:\\Users\\Administrator\\aras\\Aras Demo\\execute_integration.bat"
             }
         }
         stage('RunUFTTestFromFS'){
