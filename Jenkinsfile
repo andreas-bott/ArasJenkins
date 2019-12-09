@@ -12,16 +12,14 @@ pipeline{
             /*agent { 
                 label 'master'
             }*/
-            node('master'){
             steps {
                 echo 'Running Tests..'
                 /*node('ARAS Demo Applikation Server'){
                     TC_ARAS_SC
                 }*/
                 //node('master'){// The name of the node in which to run the test.
-                    uftScenarioLoad archiveTestResultsMode: 'DONT_ARCHIVE_TEST_REPORT', fsUftRunMode: 'Normal', testPaths: '''TC_ARAS_SC'''
+                    uftScenarioLoad archiveTestResultsMode: 'ONLY_ARCHIVE_FAILED_TESTS_REPORT', fsUftRunMode: 'Normal', testPaths: '''TC_ARAS_SC'''
                 //}
-            }
             }
         }
         stage('PublishImage'){
