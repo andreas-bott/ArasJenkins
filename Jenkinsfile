@@ -10,7 +10,8 @@ pipeline{
         }
         stage('RunUFTTestFromFS'){
             agent { 
-                label 'master'
+                //label 'master'
+                label 'ARAS Demo Applikation Server'
             }
             steps {
                 echo 'Running Tests..'
