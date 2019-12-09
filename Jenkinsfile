@@ -3,6 +3,9 @@ pipeline{
     agent any
     //cleanWs()
     //checkout scm
+    environment {
+        PATH = "C:\\WINDOWS\\SYSTEM32"
+    }
     stages{
         stage('Build') {
             steps {
