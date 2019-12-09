@@ -7,7 +7,7 @@ pipeline{
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo dir "C:\\Jenkins\\workspace\\BAT"
+                dir "C:\\Jenkins\\workspace\\BAT"
                 //bat "C:\\Users\\Administrator\\aras\\Aras Demo\\execute_integration.bat"
                 bat "C:\\Jenkins\\workspace\\BAT\\execute_integration.bat"
             }
