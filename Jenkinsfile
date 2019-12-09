@@ -9,7 +9,7 @@ pipeline{
                 echo 'Building..'
                 //bat "C:\\Users\\Administrator\\aras\\Aras Demo\\execute_integration.bat"
                 //bat "C:\\Jenkins\\workspace\\BAT\\execute_integration.bat"
-                dir("C:\\Jenkins\\workspace\\BAT"){
+                dir("C:\\Jenkins\\workspace\\BAT\\"){
                     bat "execute_integration.bat"
                 }
             }
