@@ -17,9 +17,9 @@ pipeline{
                 /*node('ARAS Demo Applikation Server'){
                     TC_ARAS_SC
                 }*/
-                //node('master'){// The name of the node in which to run the test.
+                node('master'){// The name of the node in which to run the test.
                     uftScenarioLoad archiveTestResultsMode: 'DONT_ARCHIVE_TEST_REPORT', fsUftRunMode: 'Normal', testPaths: '''TC_ARAS_SC'''
-                //}
+                }
             }
         }
         stage('PublishImage'){
