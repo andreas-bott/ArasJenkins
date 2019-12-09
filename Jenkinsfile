@@ -1,8 +1,8 @@
 
 pipeline{
-    node('master'){
     agent any
     stages{
+        node('master'){
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -65,6 +65,6 @@ pipeline{
                 }*/
             }
         }
-    }
+        }
     }
 }
