@@ -1,26 +1,25 @@
 
 pipeline{
     agent any
-    //cleanWs()
-    //checkout scm
-    environment {
-        PATH = "C:\\WINDOWS\\SYSTEM32"
-    }
     stages{
         stage('Build') {
             steps {
-                bat 'echo %PATH%'
                 echo 'Building..'
-                //bat "C:\\Users\\Administrator\\aras\\Aras Demo\\execute_integration.bat"
                 bat 'start cmd.exe /c C:\\Jenkins\\workspace\\BAT\\execute_integration.bat'
             }
         }
         stage('RunUFTTestFromFS'){
+            /*agent { 
+                label 'master'
+            }*/
             steps {
-                echo 'Running Tests..1'
+                echo 'Running Tests..'
                 /*node('ARAS Demo Applikation Server'){
                     TC_ARAS_SC
                 }*/
+                //node('master'){// The name of the node in which to run the test.
+                    uftScenarioLoad archiveTestResultsMode: 'DONT_ARCHIVE_TEST_REPORT', fsUftRunMode: 'Normal', testPaths: '''TC_ARAS_SC'''
+                //}
             }
         }
         stage('PublishImage'){
