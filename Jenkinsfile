@@ -7,7 +7,8 @@ pipeline{
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat "C:\\Users\\Administrator\\aras\\Aras Demo\\execute_integration.bat"
+                //bat "C:\\Users\\Administrator\\aras\\Aras Demo\\execute_integration.bat"
+                bat "C:\\Jenkins\\workspace\\BAT\\execute_integration.bat"
             }
         }
         stage('RunUFTTestFromFS'){
@@ -22,6 +23,7 @@ pipeline{
             steps{
                 echo 'Publishing Image..'
                 //bat "C:\Users\Administrator\aras\Aras Demo\pusblishImage.bat"
+                //bat "C:\\Jenkins\\workspace\\BAT\\pusblishImage.bat"
             }
         }
         stage('Publish Test Results'){
