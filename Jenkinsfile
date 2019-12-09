@@ -9,9 +9,9 @@ pipeline{
             }
         }
         stage('RunUFTTestFromFS'){
-            /*agent { 
+            agent { 
                 label 'master'
-            }*/
+            }
             steps {
                 echo 'Running Tests..'
                 /*node('ARAS Demo Applikation Server'){
@@ -25,8 +25,7 @@ pipeline{
         stage('PublishImage'){
             steps{
                 echo 'Publishing Image..'
-                //bat "C:\Users\Administrator\aras\Aras Demo\pusblishImage.bat"
-                //bat "C:\\Jenkins\\workspace\\BAT\\pusblishImage.bat"
+                //bat 'start cmd.exe /c C:\\Jenkins\\workspace\\BAT\\pusblishImage.bat'
             }
         }
         stage('Publish Test Results'){
