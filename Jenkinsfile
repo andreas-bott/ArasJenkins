@@ -11,7 +11,7 @@ pipeline{
         stage('RunUFTTestFromFS'){
             agent { 
                 //label 'master'
-                label 'ARAS Demo Applikation Server'
+                label 'master'
             }
             steps {
                 echo 'Running Tests..'
@@ -61,6 +61,32 @@ pipeline{
                             )
                         ]
                     )
+                    sshPublisher(
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'administrator@80.158.38.63', 
+                                transfers: [
+                                    sshTransfer(
+                                    cleanRemote: false, 
+                                    excludes: '', 
+                                    execCommand: 'C:\\Users\\Administrator\\Aras_Demo\\deployOnStage.bat', 
+                                    execTimeout: 120000, 
+                                    flatten: false, 
+                                    makeEmptyDirs: false, 
+                                    noDefaultExcludes: false, 
+                                    patternSeparator: '[, ]+', 
+                                    remoteDirectory: '', 
+                                    remoteDirectorySDF: false, 
+                                    removePrefix: '', 
+                                    sourceFiles: 'C:\\Users\\Administrator\\aras\\aras_deploy\\puttyssh.bat'
+                                    )
+                                ], 
+                                usePromotionTimestamp: false, 
+                                useWorkspaceInPromotion: false, 
+                                verbose: false
+                                )
+                            ]
+                        )
                 }*/
             }
         }
