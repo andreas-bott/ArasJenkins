@@ -19,7 +19,7 @@ pipeline{
                     TC_ARAS_SC
                 }*/
                 //node('master'){// The name of the node in which to run the test.
-                    uftScenarioLoad archiveTestResultsMode: 'ONLY_ARCHIVE_FAILED_TESTS_REPORT', fsUftRunMode: 'Normal', testPaths: '''TC_ARAS_SC'''
+                    uftScenarioLoad archiveTestResultsMode: 'PUBLISH_HTML_REPORT', fsUftRunMode: 'Normal', testPaths: '''TC_ARAS_SC'''
                 //}
             }
         }
