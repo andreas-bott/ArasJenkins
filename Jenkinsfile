@@ -10,35 +10,25 @@ pipeline{
         }
         stage('RunUFTTestFromFS'){
             agent { 
-                //label 'master'
                 label 'master'
             }
             steps {
                 echo 'Running Tests..'
-                /*node('ARAS Demo Applikation Server'){
-                    TC_ARAS_SC
-                }*/
-                //node('master'){// The name of the node in which to run the test.
-                    uftScenarioLoad archiveTestResultsMode: 'PUBLISH_HTML_REPORT', fsUftRunMode: 'Normal', testPaths: '''TC_ARAS_SC'''
-                //}
+                uftScenarioLoad archiveTestResultsMode: 'PUBLISH_HTML_REPORT', fsUftRunMode: 'Normal', testPaths: '''TC_ARAS_SC'''                
             }
         }
         stage('PublishImage'){
             steps{
                 echo 'Publishing Image..'
-                //bat 'start cmd.exe /c C:\\Jenkins\\workspace\\BAT\\pusblishImage.bat'
+                bat 'start cmd.exe /c C:\\Jenkins\\workspace\\BAT\\pusblishImage.bat'
             }
         }
-        stage('Publish Test Results'){
+        // Publish Test Results is obsolete since it is covered with the uftScenarioLoad command in RunUFTTestFromFS
+        /*stage('Publish Test Results'){
             steps{
                 echo 'Publishing test results'
-                /*agent{
-                    loadRunnerTest{
-                        archiveTestResultsMode: "Archive test report for failed tests"
-                    }
-                }*/
             }
-        }
+        }*/
         stage('Publish over SSH'){
             steps{
                 echo 'Pubishing over SSH..'
